@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1 id="output">10:12:50 am</h1> 
+        </div>
+    </div>
+
+    <script>
+      const output = document.getElementById("output");
+
+      const getTimeDate = () => {
+        const localTime = new Date();
+        console.log(localTime);
+
+        const hour = localTime.getHours();
+        const minutes = localTime.getMinutes();
+        const seconds = localTime.getSeconds();
+        
+        output.innerHTML = `${hour}:${minutes}:${seconds} ${hour>12?"PM":"AM"}`;
+
+        setTimeout(()=>{
+         getTimeDate()
+            }, 1000);
+      }
+      
+      getTimeDate();
+    </script>
+</body>
+</html>
